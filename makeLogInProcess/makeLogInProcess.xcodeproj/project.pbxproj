@@ -12,6 +12,7 @@
 		7673FAA024757619003564E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7673FA9E24757619003564E3 /* Main.storyboard */; };
 		7673FAA22475761A003564E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7673FAA12475761A003564E3 /* Assets.xcassets */; };
 		7673FAA52475761A003564E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7673FAA32475761A003564E3 /* LaunchScreen.storyboard */; };
+		76C49E312477B3B6006BD5FC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C49E302477B3B6006BD5FC /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7673FAA12475761A003564E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7673FAA42475761A003564E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7673FAA62475761A003564E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76C49E302477B3B6006BD5FC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				7673FA9824757619003564E3 /* AppDelegate.swift */,
+				76C49E302477B3B6006BD5FC /* SignInViewController.swift */,
 				7673FA9A24757619003564E3 /* SceneDelegate.swift */,
 				7673FA9E24757619003564E3 /* Main.storyboard */,
 				7673FAA12475761A003564E3 /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			files = (
 				7673FA9924757619003564E3 /* AppDelegate.swift in Sources */,
 				7673FA9B24757619003564E3 /* SceneDelegate.swift in Sources */,
+				76C49E312477B3B6006BD5FC /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
