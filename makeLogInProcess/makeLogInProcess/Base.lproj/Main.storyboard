@@ -125,14 +125,40 @@
                     <view key="view" contentMode="scaleToFill" id="2Gd-ay-5IB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJd-Hj-4sP">
+                                <rect key="frame" x="171" y="424" width="72" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="bJ6-OX-iWV" eventType="touchUpInside" id="Jj4-mV-G3I"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인 확인" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NC-rC-prw">
+                                <rect key="frame" x="0.0" y="492" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LJd-Hj-4sP" firstAttribute="centerY" secondItem="2Gd-ay-5IB" secondAttribute="centerY" id="JjD-Am-TuC"/>
+                            <constraint firstItem="LJd-Hj-4sP" firstAttribute="centerX" secondItem="2Gd-ay-5IB" secondAttribute="centerX" id="UeC-yl-8XF"/>
+                            <constraint firstItem="6NC-rC-prw" firstAttribute="leading" secondItem="mdd-sj-gZm" secondAttribute="leading" id="aBw-G5-Gqm"/>
+                            <constraint firstItem="6NC-rC-prw" firstAttribute="top" secondItem="LJd-Hj-4sP" secondAttribute="bottom" constant="20" id="ciG-cJ-GFf"/>
+                            <constraint firstItem="mdd-sj-gZm" firstAttribute="trailing" secondItem="6NC-rC-prw" secondAttribute="trailing" id="fDe-sP-UFS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mdd-sj-gZm"/>
                     </view>
                     <navigationItem key="navigationItem" id="len-8q-Vj2"/>
+                    <connections>
+                        <outlet property="checkLabel" destination="6NC-rC-prw" id="tcu-nv-dUe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1y-jC-wmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055" y="222"/>
+            <point key="canvasLocation" x="2053.6231884057975" y="221.65178571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HCV-u1-gyQ">
