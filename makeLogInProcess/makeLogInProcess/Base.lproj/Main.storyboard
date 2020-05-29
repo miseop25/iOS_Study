@@ -135,25 +135,46 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인 확인" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NC-rC-prw">
-                                <rect key="frame" x="0.0" y="492" width="414" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="492" width="414" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ff-dy-M1a">
+                                <rect key="frame" x="20" y="584" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPK-Br-Tnh">
+                                <rect key="frame" x="20" y="537.5" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="GPK-Br-Tnh" firstAttribute="leading" secondItem="mdd-sj-gZm" secondAttribute="leading" constant="20" id="2Je-Sf-Egg"/>
+                            <constraint firstItem="mdd-sj-gZm" firstAttribute="trailing" secondItem="GPK-Br-Tnh" secondAttribute="trailing" constant="20" id="8dx-Qr-PWj"/>
+                            <constraint firstItem="GPK-Br-Tnh" firstAttribute="top" secondItem="6NC-rC-prw" secondAttribute="bottom" constant="20" id="9np-5S-zlj"/>
                             <constraint firstItem="LJd-Hj-4sP" firstAttribute="centerY" secondItem="2Gd-ay-5IB" secondAttribute="centerY" id="JjD-Am-TuC"/>
+                            <constraint firstItem="7ff-dy-M1a" firstAttribute="top" secondItem="GPK-Br-Tnh" secondAttribute="bottom" constant="20" id="Jwb-7d-vdX"/>
+                            <constraint firstItem="GPK-Br-Tnh" firstAttribute="top" secondItem="6NC-rC-prw" secondAttribute="bottom" constant="20" id="S4E-jj-6X0"/>
                             <constraint firstItem="LJd-Hj-4sP" firstAttribute="centerX" secondItem="2Gd-ay-5IB" secondAttribute="centerX" id="UeC-yl-8XF"/>
                             <constraint firstItem="6NC-rC-prw" firstAttribute="leading" secondItem="mdd-sj-gZm" secondAttribute="leading" id="aBw-G5-Gqm"/>
+                            <constraint firstItem="mdd-sj-gZm" firstAttribute="trailing" secondItem="7ff-dy-M1a" secondAttribute="trailing" constant="20" id="c4i-eS-zxG"/>
                             <constraint firstItem="6NC-rC-prw" firstAttribute="top" secondItem="LJd-Hj-4sP" secondAttribute="bottom" constant="20" id="ciG-cJ-GFf"/>
                             <constraint firstItem="mdd-sj-gZm" firstAttribute="trailing" secondItem="6NC-rC-prw" secondAttribute="trailing" id="fDe-sP-UFS"/>
+                            <constraint firstItem="7ff-dy-M1a" firstAttribute="leading" secondItem="mdd-sj-gZm" secondAttribute="leading" constant="20" id="zIu-ge-cnE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mdd-sj-gZm"/>
                     </view>
                     <navigationItem key="navigationItem" id="len-8q-Vj2"/>
                     <connections>
                         <outlet property="checkLabel" destination="6NC-rC-prw" id="tcu-nv-dUe"/>
+                        <outlet property="idCheckLabel" destination="GPK-Br-Tnh" id="ROw-IQ-kq6"/>
+                        <outlet property="psCheckLabel" destination="7ff-dy-M1a" id="aZE-9J-C6M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1y-jC-wmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
