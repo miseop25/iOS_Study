@@ -162,6 +162,9 @@
                                                 <rect key="frame" x="79" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cV9-9h-TGg" id="eIx-3z-C6g"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -178,6 +181,9 @@
                                                 <rect key="frame" x="79" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cV9-9h-TGg" id="M8I-Xo-Yyt"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -194,6 +200,9 @@
                                                 <rect key="frame" x="79" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cV9-9h-TGg" id="Zqk-RU-ESy"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -210,6 +219,9 @@
                                                 <rect key="frame" x="79" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cV9-9h-TGg" id="EN4-5b-21M"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -226,6 +238,9 @@
                                                 <rect key="frame" x="79" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cV9-9h-TGg" id="2ud-PX-f5c"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -242,6 +257,9 @@
                                                 <rect key="frame" x="79" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cV9-9h-TGg" id="7Da-cO-vOu"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -258,6 +276,9 @@
                                                 <rect key="frame" x="79" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cV9-9h-TGg" id="gWJ-d3-Fl2"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -295,6 +316,15 @@
                         <viewLayoutGuide key="safeArea" id="ogh-aT-8V8"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kew-YE-hfl"/>
+                    <connections>
+                        <outlet property="ageField" destination="vwS-Mp-5EC" id="b8w-4p-BdM"/>
+                        <outlet property="emailField" destination="Wlg-Se-7DT" id="6OW-W9-qV3"/>
+                        <outlet property="idField" destination="8EY-Tu-g9C" id="ONF-Hc-IHH"/>
+                        <outlet property="nameField" destination="G7g-u3-kOI" id="C6f-Ss-ia0"/>
+                        <outlet property="phoneField" destination="pAw-Yy-Uks" id="T66-H9-GfE"/>
+                        <outlet property="psCheckField" destination="aOx-Sn-Tgb" id="jPL-ce-vh6"/>
+                        <outlet property="psField" destination="AG5-Vo-j2r" id="ACj-m7-rgg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aR-ur-c0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
