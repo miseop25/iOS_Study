@@ -27,10 +27,58 @@ class MakeAccountViewController: UIViewController {
         super.viewWillAppear(animated)
         nameField.becomeFirstResponder()
     }
+    lazy var ageCharSet = CharacterSet(charactersIn: "1234567890").inverted
     
 
 }
 extension MakeAccountViewController: UITextFieldDelegate {
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let currentText = textField.text as NSString? else {
+            return true
+        }
+        let finalText = currentText.replacingCharacters(in: range, with: string)
+        
+        switch textField {
+        case nameField:
+            if finalText.count > 5{
+                return false
+            }
+            
+        default:
+            break
+        }
+        
+        
+        return true
+    }
     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailField:
+            let ragex = "^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$"
+            guard let email = emailField.text, let _ = email.range(of: ragex, options: .regularExpression) else {
+                alert(message: "잘못된 이메일 형식입니다.")
+                return false
+            }
+        default:
+            break
+        }
+        return true
+
+    }
+    
+    
+}
+
+extension MakeAccountViewController {
+   func alert(message: String) {
+      let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+      
+      let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+      alert.addAction(ok)
+      
+      present(alert, animated: true, completion: nil)
+   }
 }
