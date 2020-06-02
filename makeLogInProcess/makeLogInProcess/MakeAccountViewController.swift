@@ -21,6 +21,8 @@ class MakeAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        psField.isSecureTextEntry = true
+        psCheckField.isSecureTextEntry = true
 
     }
     override func viewWillAppear(_ animated: Bool) {
