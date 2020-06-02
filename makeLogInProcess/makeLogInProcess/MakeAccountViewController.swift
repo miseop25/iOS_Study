@@ -29,7 +29,9 @@ class MakeAccountViewController: UIViewController {
         super.viewWillAppear(animated)
         nameField.becomeFirstResponder()
     }
-    lazy var ageCharSet = CharacterSet(charactersIn: "1234567890").inverted
+    lazy var numberCharSet = CharacterSet(charactersIn: "1234567890").inverted
+    lazy var hangulCharSet = CharacterSet(charactersIn: "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㄱㅃㅉㄸㄲㅆㅏㅑㅓㅕㅗㅛㅜㅠㅣㅡㅔㅐㅖㅒㅢ").inverted
+    lazy var engCharSet = CharacterSet(charactersIn: "abcdefghijklmnopqrswxyz").inverted
     
 
 }
@@ -44,9 +46,30 @@ extension MakeAccountViewController: UITextFieldDelegate {
         
         switch textField {
         case nameField:
-            if finalText.count > 5{
+            if finalText.count > 6{
                 return false
             }
+            if let _ = string.rangeOfCharacter(from: hangulCharSet) {
+                return false
+            }
+        case ageField:
+            if let _ = string.rangeOfCharacter(from: numberCharSet) {
+                return false
+            }
+            if let age = Int(finalText), !(1...120).contains(age) {
+                return false
+            }
+        case phoneField:
+            if finalText.count > 11 { return false }
+            if let _ = string.rangeOfCharacter(from: numberCharSet) {
+                return false
+            }
+        case idField:
+            if finalText.count > 16 { return false}
+            if let _ = string.rangeOfCharacter(from: engCharSet), let _ = string.rangeOfCharacter(from: numberCharSet) {
+                return false
+            }
+            
             
         default:
             break
@@ -62,6 +85,16 @@ extension MakeAccountViewController: UITextFieldDelegate {
             let ragex = "^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$"
             guard let email = emailField.text, let _ = email.range(of: ragex, options: .regularExpression) else {
                 alert(message: "잘못된 이메일 형식입니다.")
+                emailField.text = ""
+                emailField.becomeFirstResponder()
+                return false
+            }
+        case psCheckField:
+            if psCheckField.text != psField.text {
+                alert(message: "비밀번호가 일치하지 않습니다.")
+                psField.text = ""
+                psCheckField.text = ""
+                psField.becomeFirstResponder()
                 return false
             }
         default:
@@ -69,6 +102,13 @@ extension MakeAccountViewController: UITextFieldDelegate {
         }
         return true
 
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == psCheckField {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
     
