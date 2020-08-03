@@ -35,7 +35,7 @@ class SignInViewController: UIViewController {
                 return
                 }
             guard let psField = fieldList.last?.text , psField.count > 0 else {
-                print("ps error")
+                print("ps error")ㅈ
                 self.checkLabel.text = "PS를 입력해주세요"
                 return}
             self.checkLabel.text = "ID와 PS가 입력되었습니다."
