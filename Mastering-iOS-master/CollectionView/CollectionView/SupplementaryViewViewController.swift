@@ -30,6 +30,13 @@ class SupplementaryViewViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
+    
+    if let layout = listCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+        layout.sectionHeadersPinToVisibleBounds = true
+        layout.footerReferenceSize = CGSize(width: 50, height: 50)
+    }
+    listCollectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footer")
+    
       
       
    }
@@ -37,6 +44,28 @@ class SupplementaryViewViewController: UIViewController {
 
 
 extension SupplementaryViewViewController: UICollectionViewDataSource {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! HeaderCollectionReusableView
+            header.sectionTitleLabel.text = list[indexPath.section].title
+            return header
+        case UICollectionElementKindSectionFooter:
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath) as! FooterCollectionReusableView
+            footer.sectionFooterLabel?.text = list[indexPath.section].title
+//            푸터에서 에러 발생 글씨가 적혀지지 않음
+            return footer
+        default:
+            fatalError("Error")
+        }
+        
+
+        
+    }
+    
    func numberOfSections(in collectionView: UICollectionView) -> Int {
       return list.count
    }

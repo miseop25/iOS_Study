@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7620D3DA258B5DF7009E3842 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7620D3D9258B5DF7009E3842 /* ColorCollectionViewCell.swift */; };
-		7620D3E1258C4C78009E3842 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7620D3E0258C4C78009E3842 /* HeaderCollectionReusableView.swift */; };
-		7620D3E4258C4E30009E3842 /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7620D3E3258C4E30009E3842 /* FooterCollectionReusableView.swift */; };
 		AA5B472321078E58007AC6A8 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B472221078E58007AC6A8 /* CustomCellViewController.swift */; };
 		AA5B47272107BCFA007AC6A8 /* SupplementaryViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B47262107BCFA007AC6A8 /* SupplementaryViewViewController.swift */; };
 		AA87B3432108F69700BFF504 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B3422108F69700BFF504 /* SelectionViewController.swift */; };
@@ -30,8 +28,6 @@
 
 /* Begin PBXFileReference section */
 		7620D3D9258B5DF7009E3842 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
-		7620D3E0258C4C78009E3842 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
-		7620D3E3258C4E30009E3842 /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		AA5B472221078E58007AC6A8 /* CustomCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
 		AA5B47262107BCFA007AC6A8 /* SupplementaryViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryViewViewController.swift; sourceTree = "<group>"; };
 		AA87B3422108F69700BFF504 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
@@ -85,8 +81,6 @@
 				AAB9670F21054BAB0078FCA8 /* Model */,
 				AAB966FB210543350078FCA8 /* AppDelegate.swift */,
 				AAB966FF210543350078FCA8 /* Main.storyboard */,
-				7620D3E0258C4C78009E3842 /* HeaderCollectionReusableView.swift */,
-				7620D3E3258C4E30009E3842 /* FooterCollectionReusableView.swift */,
 				AAC8D02F2106790A0040D7CA /* ColorListViewController.swift */,
 				AAB967122105565C0078FCA8 /* FlowLayoutViewController.swift */,
 				AA5B472221078E58007AC6A8 /* CustomCellViewController.swift */,
@@ -198,8 +192,6 @@
 				AA87B34721092D8200BFF504 /* EditingHeaderCollectionReusableView.swift in Sources */,
 				AAB966FC210543350078FCA8 /* AppDelegate.swift in Sources */,
 				AAB967132105565C0078FCA8 /* FlowLayoutViewController.swift in Sources */,
-				7620D3E1258C4C78009E3842 /* HeaderCollectionReusableView.swift in Sources */,
-				7620D3E4258C4E30009E3842 /* FooterCollectionReusableView.swift in Sources */,
 				AAB9671121054BB40078FCA8 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
