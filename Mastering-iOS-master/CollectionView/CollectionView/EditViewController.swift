@@ -29,24 +29,60 @@ class EditViewController: UIViewController {
    
    @IBOutlet weak var listCollectionView: UICollectionView!
 
-   func emptySelectedList() {
+    func emptySelectedList() {
+        selectedList.removeAll()
+        let targetSection = IndexSet(integer: 0)
+        listCollectionView.reloadSections(targetSection)
       
    }
    
    func insertSection() {
-      
+    let sectionData = MaterialColorDataSource.Section()
+    colorList.insert(sectionData, at: 0)
+    
+    let targetSection = IndexSet(integer: 0)
+    listCollectionView.insertSections(targetSection)
+    
+    
    }
    
    func deleteSecondSection() {
-      
+    colorList.remove(at: 0)
+    let targetSection = IndexSet(integer: 1)
+    listCollectionView.deleteSections(targetSection)
    }
    
    func moveSecondSectionToThird() {
+    let target = colorList.remove(at: 0)
+    colorList.insert(target, at: 1)
+    
+    listCollectionView.moveSection(1, toSection: 2)
+    
       
    }
    
    func performBatchUpdates() {
+    let deleteIndexPath = (1..<3).compactMap { _ in
+        Int(arc4random_uniform(UInt32(colorList[0].colors.count)))
+    }.sorted(by: >).map { IndexPath(item: $0, section: 1)    }
+    
+    
+    let insertIndexPath = (1..<4).compactMap { _ in
+        Int(arc4random_uniform(UInt32(colorList[0].colors.count)))
+    }.sorted(by: <).map { IndexPath(item: $0, section: 1)    }
       
+    deleteIndexPath.forEach {
+        colorList[0].colors.insert(UIColor.random, at: $0.item)
+    }
+    
+    
+    
+    listCollectionView.performBatchUpdates( {
+        listCollectionView.deleteItems(at: deleteIndexPath)
+        listCollectionView.insertItems(at: insertIndexPath)
+    }, completion: nil)
+
+    
    }
    
    override func viewDidLoad() {
@@ -59,7 +95,21 @@ class EditViewController: UIViewController {
 
 extension EditViewController: UICollectionViewDelegate {
    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      
+    if indexPath.section == 0 {
+        selectedList.remove(at: indexPath.item)
+        collectionView.deleteItems(at: [indexPath])
+//        데이터를 먼저 삭재한 후에 뷰에서 삭제를 진행시켜 주어야 한다.
+        
+    }else {
+        let delected = colorList[indexPath.section - 1].colors.remove(at: indexPath.item)
+//        collectionView.deleteItems(at: [indexPath])
+        
+        let targetIndexPath = IndexPath(item: selectedList.count, section: 0)
+        selectedList.append(delected)
+        
+//        collectionView.insertItems(at: [targetIndexPath])
+        collectionView.moveItem(at: indexPath, to: targetIndexPath)
+    }
    }
 }
 

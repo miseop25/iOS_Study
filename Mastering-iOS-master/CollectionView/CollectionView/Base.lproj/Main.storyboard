@@ -256,7 +256,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="3WO-lx-puz" id="YTf-ec-2oQ"/>
-                                    <outlet property="delegate" destination="3WO-lx-puz" id="GRj-SO-kfd"/>
+                                    <outlet property="delegate" destination="3WO-lx-puz" id="R2L-FH-EFd"/>
                                 </connections>
                             </collectionView>
                         </subviews>
