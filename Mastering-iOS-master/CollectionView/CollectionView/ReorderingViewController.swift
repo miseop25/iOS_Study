@@ -28,7 +28,24 @@ class ReorderingViewController: UIViewController {
    
    @IBOutlet weak var listCollectionView: UICollectionView!
    
-   
+    @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
+        let location = sender.location(in: listCollectionView)
+        switch sender.state {
+        case .began:
+            if let indexPath = listCollectionView.indexPathForItem(at: location){
+                listCollectionView.beginInteractiveMovementForItem(at: indexPath)
+            }
+        case .changed:
+            listCollectionView.updateInteractiveMovementTargetPosition(location)
+//            셀이 이동할때마다 이동 위치가 조정된다 -> 나머지 것들도 해당된다.
+        case .ended:
+            listCollectionView.endInteractiveMovement()
+//            셀이 제스쳐가 이동된 곳으로 이동하고 연관덴 메소드가 호출된다.
+        default:
+            listCollectionView.cancelInteractiveMovement()
+        }
+    }
+    
    override func viewDidLoad() {
       super.viewDidLoad()
       
@@ -38,7 +55,15 @@ class ReorderingViewController: UIViewController {
 
 
 extension ReorderingViewController: UICollectionViewDataSource {
-   
+
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let target = list[sourceIndexPath.section].colors.remove(at: sourceIndexPath.item)
+        list[destinationIndexPath.section].colors.insert(target, at: destinationIndexPath.item)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
    
    func numberOfSections(in collectionView: UICollectionView) -> Int {
       return list.count
@@ -55,6 +80,8 @@ extension ReorderingViewController: UICollectionViewDataSource {
       return cell
    }
 }
+
+
 
 
 

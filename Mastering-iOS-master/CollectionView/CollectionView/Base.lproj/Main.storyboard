@@ -415,8 +415,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U1l-sO-MVa">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U1l-sO-MVa">
+                                <rect key="frame" x="-2" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9jh-Sj-jv4">
                                     <size key="itemSize" width="50" height="50"/>
@@ -436,6 +436,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="1ee-rl-4RC" id="FKN-f0-M4u"/>
+                                    <outletCollection property="gestureRecognizers" destination="YYa-aq-ekk" appends="YES" id="5YM-J2-Ggr"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -454,6 +455,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkI-Os-ClF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="YYa-aq-ekk">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="1ee-rl-4RC" id="8p7-xi-XKh"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-106" y="3010"/>
         </scene>
