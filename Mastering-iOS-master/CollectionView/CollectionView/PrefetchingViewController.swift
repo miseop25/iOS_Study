@@ -28,6 +28,7 @@ class PrefetchingViewController: UIViewController {
    
    lazy var refreshControl: UIRefreshControl = { [weak self] in
       let control = UIRefreshControl()
+    control.tintColor = self?.view.tintColor
       return control
       }()
    
@@ -41,6 +42,7 @@ class PrefetchingViewController: UIViewController {
          
          DispatchQueue.main.async {
             strongSelf.listCollectionView.reloadData()
+            strongSelf.listCollectionView.refreshControl?.endRefreshing()
          }
       }
    }
@@ -50,11 +52,26 @@ class PrefetchingViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
+    listCollectionView.prefetchDataSource = self
+    
+    listCollectionView.refreshControl = refreshControl
+    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    
       
    }
 }
-
+extension PrefetchingViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+//        미리 준비해야 하는 셀을 판단하고 이 메소드를 호출한다.
+        for indexPath in indexPaths {
+            downloadImage(at: indexPath.item)
+            
+        }
+        print(#function, indexPaths)
+    }
+    
+    
+}
 
 
 extension PrefetchingViewController: UICollectionViewDataSource {
@@ -79,15 +96,42 @@ extension PrefetchingViewController: UICollectionViewDataSource {
 }
 
 
+extension PrefetchingViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        이 메소드는 셀이 화면에 표시되기 직전에 표시된다.
+        if let imageView = cell.viewWithTag(100) as? UIImageView {
+           if let image = list[indexPath.row].image {
+              imageView.image = image
+           } else {
+              imageView.image = nil
+           }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+//        프리페칭 대상에서 제외된 셀이 있을때마다 호출된다.
+        print(#function, indexPaths)
+        for indexPath in indexPaths {
+            cancelDownload(at: indexPath.item)
+        }
+    }
+    
+    
+    
+    
+}
+
 
 extension PrefetchingViewController {
    func downloadImage(at index: Int) {
       guard list[index].image == nil else {
+//        이미 다운로드 한 경우를 방지
          return
       }
       
       let targetUrl = list[index].url
       guard !downloadTasks.contains(where: { $0.originalRequest?.url == targetUrl }) else {
+//        중복 다운로드 방지
          return
       }
       
