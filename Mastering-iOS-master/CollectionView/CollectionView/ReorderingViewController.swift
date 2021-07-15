@@ -27,7 +27,19 @@ class ReorderingViewController: UIViewController {
    var list = MaterialColorDataSource.generateMultiSectionData()
    
    @IBOutlet weak var listCollectionView: UICollectionView!
-   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? UICollectionViewCell else {
+            return
+        }
+        guard let indexPath = listCollectionView.indexPath(for: cell) else {
+            return
+        }
+        let target = list[indexPath.section]
+        segue.destination.view.backgroundColor = target.colors[0]
+        segue.destination.title = target.title
+    }
+    
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
         let location = sender.location(in: listCollectionView)
         switch sender.state {
@@ -64,7 +76,7 @@ extension ReorderingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-   
+    
    func numberOfSections(in collectionView: UICollectionView) -> Int {
       return list.count
    }
@@ -76,7 +88,7 @@ extension ReorderingViewController: UICollectionViewDataSource {
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
       cell.contentView.backgroundColor = list[indexPath.section].colors[indexPath.row]
-      
+
       return cell
    }
 }
