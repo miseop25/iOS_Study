@@ -15,6 +15,10 @@ class MyTestCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.cornerRadius = 2
+        
+        personName.heightAnchor.constraint(equalToConstant:  CGFloat(20)).isActive = true
+        
     }
 
 }

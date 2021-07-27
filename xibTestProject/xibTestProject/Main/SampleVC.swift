@@ -8,7 +8,7 @@
 import UIKit
 
 
-let nameList = ["김민섭", "주성민", "노준호", "석상우", "김민섭", "주성민", "노준호", "석상우"]
+let nameList = ["김민섭", "주성민", "노준호", "석상우", "두글", "한", "네글자다", "다섯글자다"]
 let colorList = [UIColor.blue, UIColor.orange ,UIColor.green, UIColor.systemPink,UIColor.blue, UIColor.orange ,UIColor.green, UIColor.systemPink]
 
 class SampleVC : UIViewController
@@ -33,11 +33,8 @@ class SampleVC : UIViewController
         flowLayout.sectionInset = UIEdgeInsets.zero
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 10
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
-        
-        
-        let halfWidth = UIScreen.main.bounds.width / 5
-        flowLayout.itemSize = CGSize(width: halfWidth * 0.9, height: halfWidth * 0.3)
         self.TestCollectionView.collectionViewLayout = flowLayout
     }
 }
