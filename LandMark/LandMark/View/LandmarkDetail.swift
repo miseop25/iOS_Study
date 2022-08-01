@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LandmarkDetail.swift
 //  LandMark
 //
 //  Created by Minseop Kim on 2022/08/01.
@@ -7,44 +7,44 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LandmarkDetail: View {
+    var landmark: Landmark
     var body: some View {
-        VStack {
-            MapView()
+        ScrollView {
+            MapView(coordinate: landmark.locationCoordinate)
                 .ignoresSafeArea(edges: .top)
                 .frame(height: 300)
-            
-            CircleView()
+            CircleView(image: landmark.image)
                 .offset(y: -100)
                 .padding(.bottom, -100)
-            
+        
             VStack(alignment: .leading) {
-                Text("Turtle Rock")
+                Text(landmark.name)
                     .font(.title)
                 HStack {
-                    Text("조쉬 나무 국립 공원")
+                    Text(landmark.park)
                     Spacer()
-                    Text("캘리포니아")
+                    Text(landmark.state)
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-                
+        
                 Divider()
-                Text("About Turtle Rock")
+                Text("About \(landmark.name)")
                     .font(.title2)
-                Text("설명")
-                    .font(.subheadline)
+                Text(landmark.description)
+                    .font(.body)
                     .foregroundColor(.secondary)
             }
             .padding()
-            Spacer()
-//          제일 아래쪽에 Spacer를 부착하면 위의 Stack이 최 상단으로 위치하게 된다.
         }
+        .navigationTitle(landmark.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LandmarkDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LandmarkDetail(landmark: landmarks[0])
     }
 }
