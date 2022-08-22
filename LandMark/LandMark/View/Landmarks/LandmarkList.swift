@@ -10,6 +10,7 @@ import SwiftUI
 struct LandmarkList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
+    @State var firstNavi = false
     
     var filteredLandmarks : [Landmark] {
         modelData.landmarks.filter { landmark in
@@ -18,24 +19,55 @@ struct LandmarkList: View {
     }
     
     var body: some View {
-        NavigationView {
-            List {
-                Toggle(isOn: $showFavoritesOnly) {
-                    Text("Star")
-                }
-                
-                ForEach(filteredLandmarks) { landmark in
-                    NavigationLink {
-                        LandmarkDetail(landmark: landmark)
-                    } label: {
-                        LandmarkRow(landmark: landmark)
+        ZStack {
+            NavigationView {
+                List {
+                    Toggle(isOn: $showFavoritesOnly) {
+                        Text("Star")
                     }
+                    
+                    ForEach(filteredLandmarks) { landmark in
+                        NavigationLink {
+                            LandmarkDetail(landmark: landmark)
+                        } label: {
+                            LandmarkRow(landmark: landmark)
+                        }
+                    }
+                    
+                }
+                .navigationTitle("Landmarks")
+                
+                .toolbar {
+                        NavigationLink(destination: LandmarkNew(firstNavi: $firstNavi), isActive: $firstNavi ) {
+
+                        }
+                }
+            }
+            VStack {
+                Spacer()
+                HStack{
+                    Spacer()
+                    if(firstNavi == false) {
+                        Button {
+                            firstNavi = true
+                        } label: {
+                            Image(systemName: "plus.app.fill")
+                                .resizable()
+                                .frame(width: 50, height: 50, alignment: .center)
+                        }
+                        .padding()
+                    }
+                    
+                    
                 }
                 
             }
-            .navigationTitle("Landmarks")
             
+            
+
         }
+
+        
         
         
     }

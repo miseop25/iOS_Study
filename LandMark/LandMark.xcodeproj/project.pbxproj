@@ -20,6 +20,7 @@
 		768FB3942897C28A00FF2487 /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768FB3932897C28A00FF2487 /* LandmarkList.swift */; };
 		768FB3962897C49600FF2487 /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768FB3952897C49600FF2487 /* LandmarkDetail.swift */; };
 		768FB3982899637800FF2487 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768FB3972899637800FF2487 /* FavoriteButton.swift */; };
+		768FB39C289FCFE300FF2487 /* LandmarkNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768FB39B289FCFE300FF2487 /* LandmarkNew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		768FB3932897C28A00FF2487 /* LandmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
 		768FB3952897C49600FF2487 /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
 		768FB3972899637800FF2487 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		768FB39B289FCFE300FF2487 /* LandmarkNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkNew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				768FB3932897C28A00FF2487 /* LandmarkList.swift */,
 				768FB3952897C49600FF2487 /* LandmarkDetail.swift */,
 				768FB3912897C0FB00FF2487 /* LandmarkRow.swift */,
+				768FB39B289FCFE300FF2487 /* LandmarkNew.swift */,
 			);
 			path = Landmarks;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				768FB3852897A19800FF2487 /* CircleView.swift in Sources */,
 				768FB3872897A2BF00FF2487 /* MapView.swift in Sources */,
 				768FB3792897A01100FF2487 /* ContentView.swift in Sources */,
+				768FB39C289FCFE300FF2487 /* LandmarkNew.swift in Sources */,
 				768FB3982899637800FF2487 /* FavoriteButton.swift in Sources */,
 				768FB3942897C28A00FF2487 /* LandmarkList.swift in Sources */,
 				768FB3962897C49600FF2487 /* LandmarkDetail.swift in Sources */,
@@ -356,7 +360,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mskim.LandMark;
+				PRODUCT_BUNDLE_IDENTIFIER = minseopKimLandmark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -385,7 +389,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mskim.LandMark;
+				PRODUCT_BUNDLE_IDENTIFIER = minseopKimLandmark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
