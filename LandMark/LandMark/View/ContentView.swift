@@ -9,40 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var modelData = ModelData()
+    @State private var selection: Tab = .featured
+
+    enum Tab {
+        case featured
+        case list
+    }
+    
     var body: some View {
-//        VStack {
-//            MapView()
-//                .ignoresSafeArea(edges: .top)
-//                .frame(height: 300)
-//
-//            CircleView()
-//                .offset(y: -100)
-//                .padding(.bottom, -100)
-//
-//            VStack(alignment: .leading) {
-//                Text("Turtle Rock")
-//                    .font(.title)
-//                HStack {
-//                    Text("조쉬 나무 국립 공원")
-//                    Spacer()
-//                    Text("캘리포니아")
-//                }
-//                .font(.subheadline)
-//                .foregroundColor(.secondary)
-//
-//                Divider()
-//                Text("About Turtle Rock")
-//                    .font(.title2)
-//                Text("설명")
-//                    .font(.subheadline)
-//                    .foregroundColor(.secondary)
-//            }
-//            .padding()
-//            Spacer()
-////          제일 아래쪽에 Spacer를 부착하면 위의 Stack이 최 상단으로 위치하게 된다.
-//        }
+        TabView(selection: $selection) {
+            CategoryHome()
+                .tabItem {
+                    Label("Featured", systemImage: "star")
+                }
+                .tag(Tab.featured)
+            LandmarkList()
+                .tabItem {
+                    Label("list", systemImage: "list.bullet")
+                }
+            
+                .tag(Tab.list)
+        }
         
-        LandmarkList()
+        
     }
 }
 

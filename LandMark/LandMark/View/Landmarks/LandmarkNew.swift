@@ -10,7 +10,7 @@ import SwiftUI
 struct LandmarkNew: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var firstNavi :Bool
-    @State private var newData: Landmark = Landmark(id: 0, name: "", park: "", state: "", description: "", isFavorite: false, coordinates: Landmark.Coordinates(latitude: 0, longitude: 0), imageName: "")
+    @State private var newData: Landmark = Landmark(id: 0, name: "", park: "", state: "", description: "", isFavorite: false, coordinates: Landmark.Coordinates(latitude: 0, longitude: 0), imageName: "", isFeatured: false, category: .lakes)
     
     
     var body: some View {
